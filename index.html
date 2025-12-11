@@ -1,23 +1,90 @@
-
-
+<!-- index.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sistem Manajemen Tugas Tim</title>
+    <!-- Menggunakan Tailwind CSS dari CDN -->
+    <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+    <!-- Link ke CSS buatan Anggota 1 -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Google -->
+    <link href="[https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap)" rel="stylesheet">
 </head>
-<body>
-    <h1>Selamat Datang di SIEGA</h1>
+<body class="text-gray-800">
 
-    <dev class="header" >
-    <lu>
-        <li>Home</li>
-        <li>Home</li>
-        <li>Home</li>
-        <li>Home</li>
-    </lu>
-    </dev>
-    
+    <!-- Navbar -->
+    <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-indigo-600">ProjekKita 🚀</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="text-sm text-gray-500">Anggota: <span class="font-semibold">3 Orang</span></div>
+                    <button id="darkModeBtn" class="p-2 rounded-full hover:bg-gray-100">🌙</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- Header Section -->
+        <div class="mb-8 flex justify-between items-end">
+            <div>
+                <h1 class="text-3xl font-bold text-gray-900">Dashboard Tugas</h1>
+                <p class="mt-2 text-gray-600">Pantau progres tugas kelompok manajemen proyek di sini.</p>
+            </div>
+            <button onclick="alert('Fitur tambah tugas akan dibuat di Sprint 2!')" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg shadow transition">
+                + Tambah Tugas
+            </button>
+        </div>
+
+        <!-- Kanban Board Area -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Kolom To Do -->
+            <div class="bg-gray-100 p-4 rounded-xl">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-bold text-gray-700">📝 Akan Dikerjakan (To Do)</h2>
+                    <span id="count-todo" class="bg-gray-300 text-gray-700 text-xs font-bold px-2 py-1 rounded-full">0</span>
+                </div>
+                <div id="todo-list" class="kanban-column space-y-3">
+                    <!-- Kartu akan dimasukkan di sini oleh JavaScript -->
+                </div>
+            </div>
+
+            <!-- Kolom In Progress -->
+            <div class="bg-blue-50 p-4 rounded-xl">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-bold text-blue-700">⚡ Sedang Dikerjakan</h2>
+                    <span id="count-progress" class="bg-blue-200 text-blue-700 text-xs font-bold px-2 py-1 rounded-full">0</span>
+                </div>
+                <div id="progress-list" class="kanban-column space-y-3">
+                    <!-- Kartu akan dimasukkan di sini oleh JavaScript -->
+                </div>
+            </div>
+
+            <!-- Kolom Done -->
+            <div class="bg-green-50 p-4 rounded-xl">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-bold text-green-700">✅ Selesai (Done)</h2>
+                    <span id="count-done" class="bg-green-200 text-green-700 text-xs font-bold px-2 py-1 rounded-full">0</span>
+                </div>
+                <div id="done-list" class="kanban-column space-y-3">
+                    <!-- Kartu akan dimasukkan di sini oleh JavaScript -->
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Script dimuat di akhir agar HTML render dulu -->
+    <!-- PERHATIAN: Urutan load script penting! Data dulu, baru Logic. -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
